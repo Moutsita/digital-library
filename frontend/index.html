@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bibliothèque Numérique - DIT</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>📚 Bibliothèque Numérique</h1>
+      <p>
+        Plateforme académique de gestion de bibliothèque avec système de
+        recommandation basé sur l'historique des emprunts.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>🔗 Accès aux microservices</h2>
+      <div class="grid">
+        <a class="service-link" href="http://localhost:8001/docs" target="_blank">
+          <span class="icon">📚</span>
+          <span>
+            <strong>Books Service</strong><br />
+            Gestion des livres
+          </span>
+        </a>
+
+        <a class="service-link" href="http://localhost:8002/docs" target="_blank">
+          <span class="icon">👤</span>
+          <span>
+            <strong>Users Service</strong><br />
+            Gestion des utilisateurs
+          </span>
+        </a>
+
+        <a class="service-link" href="http://localhost:8003/docs" target="_blank">
+          <span class="icon">📦</span>
+          <span>
+            <strong>Loans Service</strong><br />
+            Gestion des emprunts
+          </span>
+        </a>
+
+        <a class="service-link" href="http://localhost:8004/docs" target="_blank">
+          <span class="icon">🤖</span>
+          <span>
+            <strong>Recommendation Service</strong><br />
+            API de recommandations
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>🎯 Fonctionnalités du projet</h2>
+      <ul class="features">
+        <li>Ajout, modification, suppression et recherche de livres</li>
+        <li>Gestion des utilisateurs (Étudiants, Professeurs, Personnel)</li>
+        <li>Emprunt, retour et historique des livres</li>
+        <li>Détection des retards</li>
+        <li>Système de recommandation de livres</li>
+        <li>Conteneurisation avec Docker</li>
+        <li>Versioning avancé avec Git</li>
+        <li>Versioning des données et modèles avec DVC</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>⚙️ Technologies utilisées</h2>
+      <div class="tech-list">
+        <span>FastAPI</span>
+        <span>PostgreSQL</span>
+        <span>Docker</span>
+        <span>Docker Compose</span>
+        <span>Git</span>
+        <span>DVC</span>
+        <span>scikit-learn</span>
+        <span>Nginx</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>🧪 Test rapide de l'API de recommandation</h2>
+      <p>
+        Exemple d'appel :
+      </p>
+      <pre><code>GET http://localhost:8004/recommendations/1</code></pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      Master 2 Intelligence Artificielle — Examen Outils de Versioning — DIT 2026
+    </p>
+  </footer>
+</body>
+</html>

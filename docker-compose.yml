@@ -1,0 +1,51 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: library_postgres
+    environment:
+      POSTGRES_DB: library_db
+      POSTGRES_USER: library
+      POSTGRES_PASSWORD: library123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  books-service:
+    build: ./books-service
+    ports:
+      - "8001:8000"
+    depends_on:
+      - postgres
+
+  users-service:
+    build: ./users-service
+    ports:
+      - "8002:8000"
+    depends_on:
+      - postgres
+
+  loans-service:
+    build: ./loans-service
+    ports:
+      - "8003:8000"
+    depends_on:
+      - postgres
+
+  recommendation-service:
+    build: ./recommendation-service
+    ports:
+      - "8004:8000"
+    volumes:
+      - ml_model:/app/model
+      - training_data:/app/data
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+
+volumes:
+  postgres_data:
+  ml_model:
+  training_data:
