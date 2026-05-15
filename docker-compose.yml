@@ -29,6 +29,8 @@ services:
     build: ./loans-service
     ports:
       - "8003:8000"
+    volumes:
+      - ./data:/app/data
     depends_on:
       - postgres
 

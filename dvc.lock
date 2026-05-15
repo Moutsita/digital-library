@@ -1,0 +1,50 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python recommendation-service/preprocess.py
+    deps:
+    - path: data/loans.csv
+      hash: md5
+      md5: a9eb0de4edc779e8dd0db7b22379ffe9
+      size: 22
+    - path: recommendation-service/preprocess.py
+      hash: md5
+      md5: d9ba53fbbf792aa4101f32517ec919d5
+      size: 352
+    outs:
+    - path: data/loans_clean.csv
+      hash: md5
+      md5: a9eb0de4edc779e8dd0db7b22379ffe9
+      size: 22
+  train:
+    cmd: python recommendation-service/train.py
+    deps:
+    - path: data/loans_clean.csv
+      hash: md5
+      md5: a9eb0de4edc779e8dd0db7b22379ffe9
+      size: 22
+    - path: recommendation-service/train.py
+      hash: md5
+      md5: 06be31510063121c452c186e25870aaf
+      size: 1313
+    outs:
+    - path: recommendation-service/model/model.pkl
+      hash: md5
+      md5: 4da78ede2e5a8de06e61511239248e21
+      size: 22
+  evaluate:
+    cmd: python recommendation-service/evaluate.py
+    deps:
+    - path: recommendation-service/evaluate.py
+      hash: md5
+      md5: 9491908456bdd30b4122063229779b10
+      size: 220
+    - path: recommendation-service/model/model.pkl
+      hash: md5
+      md5: 4da78ede2e5a8de06e61511239248e21
+      size: 22
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: fcf60a03c1997201d9563f604ec984e8
+      size: 40
